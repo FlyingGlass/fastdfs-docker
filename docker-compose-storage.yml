@@ -1,0 +1,28 @@
+version: '3'
+services:
+  storage:
+    container_name: storage
+    image: doc.flyflyfish.com:8082/fastdfs:v1.0.0
+    command: storage
+    network_mode: host  
+    environment:
+      - TRACKER_SERVER=192.168.2.20:22122
+    volumes: 
+      - /mnt/data01/fdfs:/var/fdfs
+      - /mnt/data02:/var/fdfs0
+      - /mnt/data03:/var/fdfs1
+      - /mnt/data04:/var/fdfs2
+
+  #storage:
+  #  container_name: storage
+  #  image: doc.flyflyfish.com:8082/fastdfs:v1.0.0
+  #  command: storage
+  #  network_mode: host  
+  #  environment:
+  #    - TRACKER_SERVER=192.168.2.20:22122
+  #    - GROUP_NAME=group2
+  #  volumes: 
+  #    - /mnt/data01/fdfs:/var/fdfs
+  #    - /mnt/data02:/var/fdfs0
+  #    - /mnt/data03:/var/fdfs1
+  #    - /mnt/data04:/var/fdfs2
