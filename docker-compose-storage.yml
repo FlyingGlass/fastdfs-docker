@@ -3,6 +3,7 @@ services:
   storage:
     container_name: storage
     image: doc.flyflyfish.com:8082/fastdfs:v1.0.0
+    restart: always
     command: storage
     network_mode: host  
     environment:
@@ -16,6 +17,7 @@ services:
   #storage:
   #  container_name: storage
   #  image: doc.flyflyfish.com:8082/fastdfs:v1.0.0
+  #  restart: always
   #  command: storage
   #  network_mode: host  
   #  environment:
