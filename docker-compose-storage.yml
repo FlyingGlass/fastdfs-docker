@@ -8,6 +8,7 @@ services:
     network_mode: host  
     environment:
       - TRACKER_SERVER=192.168.2.20:22122
+      - GROUP_NAME=group1
     volumes: 
       - /mnt/data01/fdfs:/var/fdfs
       - /mnt/data02:/var/fdfs0

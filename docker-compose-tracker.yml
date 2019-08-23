@@ -3,6 +3,7 @@ services:
   tracker:
     container_name: tracker
     image: doc.flyflyfish.com:8082/fastdfs:v1.0.0
+    restart: always
     command: tracker
     network_mode: host
     volumes:   
