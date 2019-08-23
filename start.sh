@@ -20,14 +20,30 @@ if [ -n "$TRACKER_SERVER" ] ; then
 
 sed -i "s|tracker_server=.*$|tracker_server=${TRACKER_SERVER}|g" /etc/fdfs/storage.conf
 sed -i "s|tracker_server=.*$|tracker_server=${TRACKER_SERVER}|g" /etc/fdfs/client.conf
+sed -i "s|tracker_server=.*$|tracker_server=${TRACKER_SERVER}|g" /etc/fdfs/mod_fastdfs.conf
 
 fi
 
 if [ -n "$GROUP_NAME" ] ; then  
 
 sed -i "s|group_name=.*$|group_name=${GROUP_NAME}|g" /etc/fdfs/storage.conf
+# 匹配47行的group_name
+sed -i "47s|group_name=.*$|group_name=${GROUP_NAME}|g" /etc/fdfs/mod_fastdfs.conf
 
 fi 
+
+#if [ -n "$GROUP_COUNT" ] ; then  
+#
+#sed -i "s|group_count=.*$|group_count=${GROUP_COUNT}|g" /etc/fdfs/mod_fastdfs.conf
+#
+#fi 
+#
+#if [ -n "$STORE_PATH_COUNT" ] ; then  
+#
+#sed -i "s|store_path_count=.*$|group_name=${STORE_PATH_COUNT}|g" /etc/fdfs/storage.conf
+#sed -i "s|store_path_count=.*$|group_name=${STORE_PATH_COUNT}|g" /etc/fdfs/mod_fastdfs.conf
+#
+#fi 
 
 FASTDFS_LOG_FILE="${FASTDFS_BASE_PATH}/logs/${FASTDFS_MODE}d.log"
 PID_NUMBER="${FASTDFS_BASE_PATH}/data/fdfs_${FASTDFS_MODE}d.pid"
