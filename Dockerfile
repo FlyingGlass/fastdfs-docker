@@ -15,7 +15,7 @@ RUN yum install git gcc gcc-c ++ make automake autoconf libtool pcre pcre-devel 
   &&    git clone https://github.com/happyfish100/fastdfs-nginx-module.git --depth 1   \
   &&    wget http://nginx.org/download/nginx-1.15.4.tar.gz    \
   &&    tar -zxvf nginx-1.15.4.tar.gz    \
-  &&    mkdir /home/dfs   \
+  &&    mkdir -p ${FASTDFS_BASE_PATH}   \
   &&    cd /usr/local/src/  \
   &&    cd libfastcommon/   \
   &&    ./make.sh && ./make.sh install  \

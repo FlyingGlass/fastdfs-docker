@@ -54,6 +54,12 @@ if [ -f "$FASTDFS_LOG_FILE" ]; then
 fi
 # start the fastdfs node.	
 fdfs_${FASTDFS_MODE}d /etc/fdfs/${FASTDFS_MODE}.conf start
+# storage start nginx 
+if [ "${FASTDFS_MODE}" = "storage" ] ; then
+    mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.t
+    cp /etc/fdfs/nginx.conf /usr/local/nginx/conf
+    /usr/local/nginx/sbin/nginx 
+fi
 
 # wait for pid file(important!),the max start time is 5 seconds,if the pid number does not appear in 5 seconds,start failed.
 TIMES=5
